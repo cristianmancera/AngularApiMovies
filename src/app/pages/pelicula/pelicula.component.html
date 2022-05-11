@@ -1,0 +1,39 @@
+<div class="row row-cols-2 d-flex justify-content-around mt-5 animate__animated animate__fadeIn" *ngIf="pelicula">
+    
+    <div class="col-md-4 mb-5 ">
+        <img [src]="pelicula.poster_path | poster" 
+            [alt]="pelicula.title"
+            class="img-thumbnail">
+    </div>
+    <div class="col-md-6">
+        <h3>{{pelicula.title}}</h3>
+        <div class="row row-cols-2">
+            <div class="col text-white">
+                *****
+            </div>
+            <div class="col text-white">
+                {{pelicula.vote_average | number:'1.1-2'}}
+            </div>
+        </div>
+        <div class="row row-cols-1 mt-4">
+            <div class="col text-white">
+                {{pelicula.overview}}
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <button class="btn btn-outline-info"
+                        (click)="onRegresar()">
+                    Regresar
+                </button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="row mt-5" *ngIf="cast.length>0">
+    <div class="col">
+        <app-cast-slide-show [cast]="cast"></app-cast-slide-show>
+    </div>
+</div>
